@@ -25,10 +25,9 @@ Use this scale:
 def load_baseline():
     df = pd.read_csv("filtered_merged_variables.csv")
     top_vars = [
-        'cbcl_q24_p', 'sleepdisturb4_p', 'cbcl_q76_p', 'cbcl_q102_p',
-        'cbcl_q01_p', 'cbcl_q61_p', 'famhx_ss_parent_prf_p',
-        'kbi_p_conflict', 'ksads_asd_raw_560_p', 'asr_q120_p',
-        'asr_q116_p', 'sai_ss_basket_nyr_p'
+        'ksads_sleepprob_raw_814_p', 'cbcl_q71_p', 'famhx_ss_parent_prf_p',
+        'ksads_asd_raw_562_p', 'cbcl_q04_p', 'asr_q47_p', 'cbcl_q86_p',
+        'sds_p_ss_does', 'cbcl_q22_p', 'fhx_3hb_p', 'cbcl_q09_p', 'asr_q116_p'
     ]
     return df[top_vars].dropna()
 
@@ -37,36 +36,36 @@ baseline_df = load_baseline()
 # ----------------------------------------
 # 3. Logistic Regression Coefficients
 # ----------------------------------------
-intercept = -0.5833
+intercept = -0.7241
 
 coefficients = {
-    'cbcl_q24_p': 0.2902,
-    'sleepdisturb4_p': 0.3003,
-    'cbcl_q76_p': 0.1844,
-    'cbcl_q102_p': 0.2228,
-    'cbcl_q01_p': 0.1467,
-    'cbcl_q61_p': 0.0356,
-    'famhx_ss_parent_prf_p': 0.1889,
-    'kbi_p_conflict': 0.1825,
-    'ksads_asd_raw_560_p': 0.1438,
-    'asr_q120_p': 0.1244,
-    'asr_q116_p': 0.1827,
-    'sai_ss_basket_nyr_p': -0.1044
+    'ksads_sleepprob_raw_814_p': 0.1580,
+    'cbcl_q71_p': 0.1264,
+    'famhx_ss_parent_prf_p': 0.1170,
+    'ksads_asd_raw_562_p': -0.1068,
+    'cbcl_q04_p': 0.1030,
+    'asr_q47_p': 0.1008,
+    'cbcl_q86_p': 0.0986,
+    'sds_p_ss_does': 0.0963,
+    'cbcl_q22_p': 0.0947,
+    'fhx_3hb_p': 0.0884,
+    'cbcl_q09_p': 0.0876,
+    'asr_q116_p': 0.0864
 }
 
 labels = {
-    'cbcl_q24_p': "Child has poor appetite",
-    'sleepdisturb4_p': "Difficulty falling asleep",
-    'cbcl_q76_p': "Sleeps less than other children",
-    'cbcl_q102_p': "Lacks energy / slow moving",
-    'cbcl_q01_p': "Acts too young for age",
-    'cbcl_q61_p': "Poor school work",
-    'famhx_ss_parent_prf_p': "Parent has psychiatric condition",
-    'kbi_p_conflict': "Family conflict level",
-    'ksads_asd_raw_560_p': "Repetitive behavior (ASD screener)",
-    'asr_q120_p': "Drives too fast (parent self-report)",
-    'asr_q116_p': "Gets upset too easily (parent self-report)",
-    'sai_ss_basket_nyr_p': "Played basketball in past year"
+    'ksads_sleepprob_raw_814_p': "Sleep problems (e.g., difficulty falling/staying asleep)",
+    'cbcl_q71_p': "Self-conscious or easily embarrassed",
+    'famhx_ss_parent_prf_p': "Parent has professional mental health diagnosis",
+    'ksads_asd_raw_562_p': "Repetitive behaviors (ASD-related symptom)",
+    'cbcl_q04_p': "Cries a lot",
+    'asr_q47_p': "Feels overwhelmed by responsibilities",
+    'cbcl_q86_p': "Talks about suicide",
+    'sds_p_ss_does': "Social activity involvement",
+    'cbcl_q22_p': "Gets in many fights",
+    'fhx_3hb_p': "Family history of behavioral health problems",
+    'cbcl_q09_p': "Cannot concentrate, easily distracted",
+    'asr_q116_p': "Feels disliked or unaccepted"
 }
 
 # ----------------------------------------
